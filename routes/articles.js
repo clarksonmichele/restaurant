@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
 // GET handler for add to display a blank form
 router.get('/add', function(req, res, next) {
     res.render('articles/add', {
-        title: 'Add a New Article'
+        title: 'Add a New Menu Item'
     });
 });
 
@@ -91,24 +91,25 @@ router.post('/:id', function(req, res, next) {
     });
 });
 
-// GET handler for delete using the article id parameter
+//GET handler for delete using the article id parameter
 router.get('/delete/:id', function(req, res, next) {
-   // grab the id parameter from the url
-    var id = req.params.id;
-
+    //grab the id parameter from the url
+   var id = req.params.id;
+    
     console.log('trying to delete');
-
-    Article.remove({ _id: id }, function(err) {
-        if (err) {
+    
+    Article.remove({ _id: id}, function(err) {
+       if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            // show updated articles list
-            res.redirect('/articles');
+            //show the updated articles list
+           res.redirect('/articles');
         }
     });
 });
+
 
 // make public
 module.exports = router;

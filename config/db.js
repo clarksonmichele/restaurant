@@ -5,7 +5,5 @@ module.exports = {
     // 'url': 'mongodb://localhost/test'
 
     // live on mLab
-    'url': 'mongodb://mclarkson:1234qwer@ds064278.mlab.com:64278/michele2106'
+    'url': 'mongodb://mclarkson:1234qwer@ds064748.mlab.com:64748/lab5',
 };
-
-

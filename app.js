@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
-// auth packages
+//authorization packages
 var passport = require('passport');
 var session = require('express-session');
 var flash = require('connect-flash');
@@ -20,11 +20,11 @@ var auth = require('./routes/auth');
 
 var app = express();
 
-// view engine setup
+//view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
+//uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -32,12 +32,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// enable flash for showing messages
+//enable flash for showing messages
 app.use(flash());
 
-// passport config section
+//passport config section
 app.use(session({
-  secret: 'lesson8 auth',
+  secret: 'lab5 auth',
   resave: true,
   saveUninitialized: false
 }));
@@ -45,20 +45,21 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// use the Account model we built
+//use the Account model we built
 var Account = require('./models/account');
 passport.use(Account.createStrategy());
+passport.use(new localStrategy(Account.authenticate()));
 
-// methods for accessing the session data
-passport.serializeUser(Account.serializeUser);
-passport.deserializeUser(Account.deserializeUser);
+//methods for accessing the session data
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
 
 app.use('/', routes);
 app.use('/users', users);
 app.use('/articles', articles);
 app.use('/auth', auth);
 
-// db connection
+//db connection
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'DB Error: '));
@@ -67,24 +68,22 @@ db.once('open', function(callback) {
   console.log('Connected to mongodb');
 });
 
-// connect to local instance directly
-// mongoose.connect('mongodb://localhost/test');
+//connect to local 
+//mongoose.connect('mongodb://localhost/test');
 
-// connect to mlab instance directly
-// mongoose.connect('mongodb://gcrfreeman:2106pass@ds056288.mlab.com:56288/comp2106');
+//connect to mlab
+//mongoose.connect('mongodb://mclarkson:1234qwer@ds064748.mlab.com:64748/lab5');
 
-// read db connection string from our config file
-var configDb = require('./config/db.js');
+//read db connection string from config file
+var configDb = require ('./config/db.js');
 mongoose.connect(configDb.url);
 
-// catch 404 and forward to error handler
+//catch 404's and forward them to an error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
-
-// error handlers
 
 // development error handler
 // will print stacktrace

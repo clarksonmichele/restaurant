@@ -1,7 +1,7 @@
 // link to mongoose
 var mongoose = require('mongoose');
 
-// define the article schema
+// define the menu schema
 var articleSchema = new mongoose.Schema({
    created: {
        type: Date,
@@ -19,5 +19,5 @@ var articleSchema = new mongoose.Schema({
     }
 });
 
-// make it public
+// make the menu public
 module.exports = mongoose.model('Article', articleSchema);

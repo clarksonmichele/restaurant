@@ -4,8 +4,8 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
-      title: 'First Express Page',
-        message: 'This works pretty well so far'});
+      title: 'Tesoros',
+        message: 'Casual Italian Cuisine'});
 });
 
 /* GET random page */
