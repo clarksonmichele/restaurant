@@ -1,5 +1,3 @@
-# comp2106-lesson8
+Assignment 2 - Tesoro
 
-Adding Delete functionality
-
-Setting up Passport for Authentication
+Trying to create functionality
