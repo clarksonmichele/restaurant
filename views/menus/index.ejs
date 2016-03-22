@@ -1,0 +1,20 @@
+<%- include ../partials/header.ejs %>
+
+<main class="container">
+    <h1>Menus</h1>
+
+    <a href="/menus/add" title="Add a menu item">Add a new Menu Item</a>
+
+    <ul class="list-group">
+        <% for (var i = 0; i < menus.length; i++) { %>
+            <li class="list-group-item">
+                <!-- link to /menus/:id -->
+                <a href="/menus/<%= menus[i]._id%>" title="Read More">
+                    <%= menus[i].title %></a>
+            </li>
+        <% } %>
+    </ul>
+</main>
+
+</body>
+</html>

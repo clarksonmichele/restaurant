@@ -2,21 +2,21 @@
 
 <main class="container">
     <h1>Menu</h1>
-    <form method="post" action="<%= article._id %>">
+    <form method="post" action="<%= menu._id %>">
         <fieldset class="form-group">
             <label for="title" class="col-sm-2">Edit Item:</label>
-            <input name="title" id="title" required value="<%= article.title %>" />
+            <input name="title" id="title" required value="<%= menu.title %>" />
         </fieldset>
         <fieldset class="form-group">
             <label for="content" class="col-sm-2">Edit Description:</label>
-            <textarea name="content" id="content" required><%= article.content %>
+            <textarea name="content" id="content" required><%= menu.content %>
             </textarea>
         </fieldset>
         <div>
-            <%= article.created %>
+            <%= menu.created %>
         </div>
         <button class="btn btn-primary col-sm-offset-2">Save</button>
-        <a href="/articles/delete/<%= article._id %>" title="Delete" class="confirmation">
+        <a href="/menus/delete/<%= menu._id %>" title="Delete" class="confirmation">
             <button class="btn btn-danger col-sm-offset-2" type="button">Delete</button>
         </a>
     </form>

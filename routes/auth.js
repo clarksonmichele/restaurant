@@ -22,7 +22,7 @@ router.post('/register', function(req, res, next) {
         }
         else {
             req.login(account, function(err) {
-                res.redirect('/articles');
+                res.redirect('/menus');
             });
         }
     });
@@ -48,7 +48,7 @@ router.get('/login', function(req, res, next) {
 
 //POST login - validate the user and send them to articles or back to login
 router.post('/login', passport.authenticate('local', {
-   successRedirect: '/articles',
+   successRedirect: '/menus',
    failureRedirect: '/auth/login',
    failureMessage: 'Invalid Login'
 }));

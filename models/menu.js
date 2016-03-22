@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 
 // define the menu schema
-var articleSchema = new mongoose.Schema({
+var menuSchema = new mongoose.Schema({
    created: {
        type: Date,
        default: Date.now
@@ -20,4 +20,4 @@ var articleSchema = new mongoose.Schema({
 });
 
 // make the menu public
-module.exports = mongoose.model('Article', articleSchema);
+module.exports = mongoose.model('Menu', menuSchema);

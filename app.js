@@ -15,7 +15,7 @@ var localStrategy = require('passport-local').Strategy;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var articles = require('./routes/articles');
+var menus = require('./routes/menus');
 var auth = require('./routes/auth');
 
 var app = express();
@@ -56,7 +56,7 @@ passport.deserializeUser(Account.deserializeUser());
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/articles', articles);
+app.use('/menus', menus);
 app.use('/auth', auth);
 
 //db connection
