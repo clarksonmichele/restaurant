@@ -1,5 +1,7 @@
-Assignment 2 - Tesoro
+Assignment 2 - Basilico
 
-assign2 and restaurant will be the same file for now copied over. Read only will be ? 
+This is a restaurant menu that the owners and Chefs can edit.
 
-Tuesday: talk to Rich and decide how to fix or start again.
+Read only public file will be the menu.
+
+Added feature ideas - photo uploads or categories.
