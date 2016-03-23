@@ -4,20 +4,18 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Menu = require('../models/menu');
 
-// set up the GET handler for the main menus page
-router.get('/', function(req, res, next) {
-    // use the Menu model to retrieve all menus
+//GET handler - main menus page - private
+router.get('/', isLoggedIn, function(req, res, next) {
+    //Menu model - get the menu items
     Menu.find(function (err, menus) {
-        // if we have an error
+        //if we have an error
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
-            // we got data back
-            // show the view and pass the data to it
+            //display
             res.render('menus/index', {
-
                 title: 'Menus',
                 menus: menus
             });
@@ -25,40 +23,40 @@ router.get('/', function(req, res, next) {
     });
 });
 
-// GET handler for add to display a blank form
-router.get('/add', function(req, res, next) {
+//GET handler for add - form
+router.get('/add', isLoggedIn, function(req, res, next) {
     res.render('menus/add', {
         title: 'Add a New Menu Item'
     });
 });
 
-// POST handler for add to process the form
-router.post('/add', function(req, res, next) {
+//POST handler for add - add new item
+router.post('/add', isLoggedIn, function(req, res, next) {
 
-    // save a new menu using our Menu model and mongoose
+    //save a new menu item -Menu model and mongoose
     Menu.create( {
             title: req.body.title,
             content: req.body.content
         }
     );
 
-    // redirect to main menus page
+    //redirect to menu
     res.redirect('/menus');
 });
 
-// GET handler for edit to show the populated form
-router.get('/:id', function(req, res, next) {
-   // create an id variable to store the id from the url
+//GET handler for edit - show the menu items to edit
+router.get('/:id', isLoggedIn, function(req, res, next) {
+   //create an id variable - store the id from the url
     var id = req.params.id;
 
-    // look up the selected article
-    Menu.findById(id,  function(err, menu) {
+    //look up the a menu item
+    Menu.findById(id, function(err, menu) {
        if (err) {
            console.log(err);
            res.end(err);
        }
         else {
-           // show the edit view
+           //or else show the edit view
            res.render('menus/edit', {
                title: 'Menu Details',
                menu: menu
@@ -67,19 +65,19 @@ router.get('/:id', function(req, res, next) {
     });
 });
 
-// POST handler for edit to update the menu
-router.post('/:id', function(req, res, next) {
-    // create an id variable to store the id from the url
+//POST handler for edit - change menu items
+router.post('/:id', isLoggedIn, function(req, res, next) {
+    //id variable to store
     var id = req.params.id;
 
-    // fill the menu object
+    //fill the menu info
     var menu = new Menu( {
         _id: id,
         title: req.body.title,
         content: req.body.content
     });
 
-    // use mongoose and our Menu model to update
+    //update with mongoose and Menu model or redirect 
     Menu.update( { _id: id }, menu,  function(err) {
         if (err) {
             console.log(err)
@@ -91,12 +89,12 @@ router.post('/:id', function(req, res, next) {
     });
 });
 
-//GET handler for delete using the menu id parameter
-router.get('/delete/:id', function(req, res, next) {
-    //grab the id parameter from the url
-   var id = req.params.id;
+//GET handler for delete - using menu ids 
+router.get('/delete/:id', isLoggedIn, function(req, res, next) {
     
-    console.log('trying to delete');
+//id from the url
+   var id = req.params.id;
+        console.log('deleting a menu item');
     
     Menu.remove({ _id: id}, function(err) {
        if (err) {
@@ -104,12 +102,21 @@ router.get('/delete/:id', function(req, res, next) {
             res.end(err);
         }
         else {
-            //show the updated menus list
            res.redirect('/menus');
+        // and display the updated menu items
         }
     });
 });
 
+//is the user authenticated - if not login
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    else {
+        res.redirect('/auth/login');
+    }
+}
 
-// make public
+//make it public
 module.exports = router;

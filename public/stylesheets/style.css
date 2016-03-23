@@ -1,9 +1,35 @@
-body {
-    padding: 100px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    background-color: bisque;
+/* STYLES.CSS by Michele Clarkson COMP2106 - Tesoro - CUSTOM CSS STYLES */
+
+/*Global Styles*/
+.container main {
+    width: 100%;
+    
 }
 
-a {
-  color: #00B7FF;
+body {
+    font-size: 100%;
+    line-height: 2em;
+    padding: 3%;
+    font-family: sans-serif;
+}
+
+h1 {
+}
+
+p {
+    font-size: 1.3em;
+    color: #333333;
+}
+
+
+/*Footer*/
+footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    background-color: #333;
+    text-align: center;
+}
+footer p {
+    color: #fff;
 }

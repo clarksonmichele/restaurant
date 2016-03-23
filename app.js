@@ -5,19 +5,22 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//reference mongoose to talk to the database - npm install mongoose
 var mongoose = require('mongoose');
 
-//authorization packages
+//reference the authorization packages
 var passport = require('passport');
 var session = require('express-session');
 var flash = require('connect-flash');
 var localStrategy = require('passport-local').Strategy;
 
+//reference the routes controllers - mapping urls
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var menus = require('./routes/menus');
 var auth = require('./routes/auth');
 
+//reference the express npm
 var app = express();
 
 //view engine setup
@@ -32,12 +35,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//enable flash for showing messages
+//enable flash to show messages
 app.use(flash());
 
-//passport config section
+//passport configuration - initialize a session 
 app.use(session({
-  secret: 'lab5 auth',
+  secret: 'tesoro auth',
   resave: true,
   saveUninitialized: false
 }));
@@ -45,12 +48,12 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//use the Account model we built
+//account model for register/login
 var Account = require('./models/account');
 passport.use(Account.createStrategy());
 passport.use(new localStrategy(Account.authenticate()));
 
-//methods for accessing the session data
+//session data methods
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
@@ -59,7 +62,7 @@ app.use('/users', users);
 app.use('/menus', menus);
 app.use('/auth', auth);
 
-//db connection
+//reference the db connection
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'DB Error: '));
@@ -68,24 +71,18 @@ db.once('open', function(callback) {
   console.log('Connected to mongodb');
 });
 
-//connect to local 
-//mongoose.connect('mongodb://localhost/test');
-
-//connect to mlab
-//mongoose.connect('mongodb://mclarkson:1234qwer@ds064748.mlab.com:64748/lab5');
-
-//read db connection string from config file
+//reference db connection string that is in the config file
 var configDb = require ('./config/db.js');
 mongoose.connect(configDb.url);
 
-//catch 404's and forward them to an error handler
+//404 - forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-// development error handler
+//dev error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {

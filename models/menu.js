@@ -1,7 +1,7 @@
-// link to mongoose
+//mongoose to talk to the db
 var mongoose = require('mongoose');
 
-// define the menu schema
+//define the menu schema
 var menuSchema = new mongoose.Schema({
    created: {
        type: Date,
@@ -19,5 +19,5 @@ var menuSchema = new mongoose.Schema({
     }
 });
 
-// make the menu public
+//make it  public
 module.exports = mongoose.model('Menu', menuSchema);
