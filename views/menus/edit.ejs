@@ -4,12 +4,12 @@
     <h1>Menu</h1>
     <form method="post" action="<%= menu._id %>">
         <fieldset class="form-group">
-            <label for="title" class="col-sm-2">Edit Item:</label>
-            <input name="title" id="title" required value="<%= menu.title %>" />
+            <label for="item" class="col-sm-2">Edit Item:</label>
+            <input name="item" id="item" required value="<%= menu.item %>" />
         </fieldset>
         <fieldset class="form-group">
-            <label for="content" class="col-sm-2">Edit Description:</label>
-            <textarea name="content" id="content" required><%= menu.content %>
+            <label for="description" class="col-sm-2">Edit Description:</label>
+            <textarea name="description" id="description" required><%= menu.description %>
             </textarea>
         </fieldset>
         <div>

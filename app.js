@@ -16,9 +16,9 @@ var localStrategy = require('passport-local').Strategy;
 
 //reference the routes controllers - mapping urls
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var menus = require('./routes/menus');
 var auth = require('./routes/auth');
+var basilico = require('./routes/basilico');
 
 //reference the express npm
 var app = express();
@@ -40,7 +40,7 @@ app.use(flash());
 
 //passport configuration - initialize a session 
 app.use(session({
-  secret: 'tesoro auth',
+  secret: 'basil auth',
   resave: true,
   saveUninitialized: false
 }));
@@ -48,7 +48,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//account model for register/login
+//use account model to authenticate
 var Account = require('./models/account');
 passport.use(Account.createStrategy());
 passport.use(new localStrategy(Account.authenticate()));
@@ -58,9 +58,9 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 app.use('/', routes);
-app.use('/users', users);
 app.use('/menus', menus);
 app.use('/auth', auth);
+app.use('/basilico', basilico);
 
 //reference the db connection
 var db = mongoose.connection;

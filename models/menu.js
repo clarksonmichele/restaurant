@@ -7,15 +7,13 @@ var menuSchema = new mongoose.Schema({
        type: Date,
        default: Date.now
    },
-    title: {
+    item: {
         type: String,
-        default: '',
-        trim: true,
-        required: 'Title cannot be blank'
+        required: 'Please state the Menu Item'
     },
-    content: {
+    description: {
         type: String,
-        default: ''
+        required: 'Please state the Menu Item'
     }
 });
 

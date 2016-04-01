@@ -1,8 +1,10 @@
+//
 var express = require('express');
 var router = express.Router();
-
+//link to mongoose, the menu model and passport
 var mongoose = require('mongoose');
 var Menu = require('../models/menu');
+var passport = require('passport');
 
 //GET handler - main menus page - private
 router.get('/', isLoggedIn, function(req, res, next) {
@@ -35,8 +37,8 @@ router.post('/add', isLoggedIn, function(req, res, next) {
 
     //save a new menu item -Menu model and mongoose
     Menu.create( {
-            title: req.body.title,
-            content: req.body.content
+            item: req.body.item,
+            description: req.body.description
         }
     );
 
@@ -73,8 +75,8 @@ router.post('/:id', isLoggedIn, function(req, res, next) {
     //fill the menu info
     var menu = new Menu( {
         _id: id,
-        title: req.body.title,
-        content: req.body.content
+        item: req.body.item,
+        description: req.body.description
     });
 
     //update with mongoose and Menu model or redirect 
