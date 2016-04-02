@@ -4,9 +4,10 @@ var router = express.Router();
 
 // home page
 router.get('/', function(req, res, next) {
-  res.render('index', {
-      title: 'Basilico',
-        message: 'Casual Italian Cuisine'});
+    res.render('index', {
+        title: 'Basilico',
+        message: 'Casual Italian Cuisine' 
+    });
 });
 
 //make it public

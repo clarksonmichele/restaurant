@@ -3,10 +3,10 @@ var mongoose = require('mongoose');
 
 //define the menu schema
 var menuSchema = new mongoose.Schema({
-   created: {
+   /*created: {
        type: Date,
        default: Date.now
-   },
+   },*/
     item: {
         type: String,
         required: 'Please state the Menu Item'

@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+//var multer = require('multer');
 
 //reference mongoose to talk to the database - npm install mongoose
 var mongoose = require('mongoose');
@@ -18,14 +19,17 @@ var localStrategy = require('passport-local').Strategy;
 var routes = require('./routes/index');
 var menus = require('./routes/menus');
 var auth = require('./routes/auth');
-var basilico = require('./routes/basilico');
-
+var basilicos = require('./routes/basilicos');
 //reference the express npm
 var app = express();
 
 //view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+//handle file uploads 
+//app.use(multer({ dest: './public/images/uploads' }));
+
 
 //uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -60,7 +64,7 @@ passport.deserializeUser(Account.deserializeUser());
 app.use('/', routes);
 app.use('/menus', menus);
 app.use('/auth', auth);
-app.use('/basilico', basilico);
+app.use('/basilicos', basilicos);
 
 //reference the db connection
 var db = mongoose.connection;
