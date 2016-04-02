@@ -1,7 +1,21 @@
 <%- include partials/header.ejs %>
 
+<main class="container">
     <h1><%= title %></h1>
     
+  <ul class="">
+        <% for (var i = 0; i < menus.length; i++) { %>
+            <li class="">
+                <!-- link to /menus/:ids -->
+                
+                    <%= menus[i].item %>
+                
+                    <%= menus[i].description %>
+            </li>
+        <% } %>
+    </ul>
+
+</main>
 
 
     <a href="/auth/login" title="Login">Login</a> or <a href="/auth/register" title="Register">Register</a>
