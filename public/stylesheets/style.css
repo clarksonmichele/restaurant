@@ -1,9 +1,8 @@
-/* STYLES.CSS by Michele Clarkson COMP2106 - Tesoro - CUSTOM CSS STYLES */
+/* STYLES.CSS by Michele Clarkson COMP2106 - Basilico - CUSTOM CSS STYLES */
 
 /*Global Styles*/
 .container main {
     width: 100%;
-    
 }
 
 body {
@@ -11,6 +10,11 @@ body {
     line-height: 2em;
     padding: 3%;
     font-family: sans-serif;
+    background-image: url('../images/pasta.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px;
 }
 
 h1 {
@@ -21,6 +25,9 @@ p {
     color: #333333;
 }
 
+/*Header*/
+
+<
 
 /*Footer*/
 footer {

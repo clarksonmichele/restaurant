@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Menu = require('../models/menu');
-//var passport = require('passport');
 
 /* GET the menu */
 router.get('/', function(req, res, next) {

@@ -1,3 +1,4 @@
+/* Michele Clarkson COMP2106 - Basilico - everything global */
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -20,8 +21,12 @@ var routes = require('./routes/index');
 var menus = require('./routes/menus');
 var auth = require('./routes/auth');
 var basilicos = require('./routes/basilicos');
+
 //reference the express npm
 var app = express();
+
+//make the new json data global to all pages
+//app.locals.reviews = require('./testimonials.json');
 
 //view engine setup
 app.set('views', path.join(__dirname, 'views'));

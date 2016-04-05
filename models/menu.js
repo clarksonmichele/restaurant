@@ -1,3 +1,4 @@
+/* Michele Clarkson COMP2106 - Basilico model */
 //mongoose to talk to the db
 var mongoose = require('mongoose');
 
@@ -17,5 +18,5 @@ var menuSchema = new mongoose.Schema({
     }
 });
 
-//make it  public
+//make it public
 module.exports = mongoose.model('Menu', menuSchema);

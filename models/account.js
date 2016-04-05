@@ -1,3 +1,4 @@
+/* Michele Clarkson COMP2106 - Basilico model */
 //mongoose to talk to the db
 var mongoose = require('mongoose');
 //create a schema variable

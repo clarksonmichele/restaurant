@@ -1,0 +1,25 @@
+{
+    "testimonials":
+    [
+        {
+            testQuote: "I can't say enough about your quaint Italian Restaurant! The reasonable prices, and great atmosphere are only topped by the delicious food. Basilico is a Gem! Keep up the great work!",
+            testName: "Jane Ross"
+        },
+        {
+            testQuote: "Loved the food! I highly recommend Joey's for a great Italian meal!",
+            testName: "Clinton"
+        },
+        {
+            testQuote: "We've been to Joey's many times over the years. We know what to expect: great food and great prices. I suggest checking them out.",
+            testName: "Joe"
+        },
+        {
+            testQuote: "At lunchtime, people in the know head to Joey's. It is the best place to eat lunch.",
+            testName: "Stephanie"
+        },
+        {
+            testQuote: "The food was delicious, portions generous, and the price was outstanding. Now we recommend the restaurant to our friends and family.",
+            testName: "Dave and Shelly"
+        }
+    ]
+}
