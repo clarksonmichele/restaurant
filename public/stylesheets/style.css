@@ -10,11 +10,11 @@ body {
     line-height: 2em;
     padding: 3%;
     font-family: sans-serif;
-    background-image: url('../images/pasta.png');
+   /* background-image: url('../images/pasta.png');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 100px;
+    padding: 100px;*/
 }
 
 h1 {
@@ -30,7 +30,8 @@ p {
 <
 
 /*Footer*/
-footer {
+.footer {
+    outline: 2px solid aqua;
     margin-top: 20px;
     padding-top: 20px;
     padding-bottom: 40px;
