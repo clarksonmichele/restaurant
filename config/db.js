@@ -1,4 +1,3 @@
-
 /* Michele Clarkson COMP2106 - Basilico */
 
 module.exports = {

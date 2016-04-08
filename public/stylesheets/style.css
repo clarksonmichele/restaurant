@@ -26,8 +26,8 @@ p {
     color: #333333;
 }
 
- a {
-  
+li .item {
+    color: red;
 }
 /*Header*/
 
