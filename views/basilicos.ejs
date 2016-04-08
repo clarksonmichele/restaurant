@@ -1,27 +1,26 @@
 <%- include partials/header.ejs %>
 
-<main class="container">
-    <h1><%= title %></h1>
-    
-    <ul class="">
-        <% for (var i = 0; i < menus.length; i++) { %>
-            <li class="">
-                <!-- link to /menus/:ids -->
-                
-                    <%= menus[i].item %>
-                
-                    <%= menus[i].description %>
-                
-            </li>
-        <% } %>
-    </ul>
-    
-    
+
+<section class="jumbotron">
+    <div class="container">
+        <h1><%= title %></h1>
+
+        <ul class="list-group well">
+            <% for (var i = 0; i < menus.length; i++) { %>
+                <li class="list-group-item">
+                    <!-- link to /menus/:ids -->
+
+                        <%= menus[i].item %>
+
+                        <%= menus[i].description %>
+
+                </li>
+            <% } %>
+        </ul>
+    </div>  
+</section>
 
 
-
-
-    <a href="/auth/login" title="Login">Login</a> or <a href="/auth/register" title="Register">Register</a>
-
-  </main>
 <%- include ./partials/footer.ejs %>
+
+

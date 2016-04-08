@@ -1,13 +1,14 @@
+<!--header.ejs by Michele Clarkson COMP2106 - Basilico - This header cpmmon header-->
+
 <%- include partials/header.ejs %>
 
-<main class="container">
-    
-    <h1><%= title %></h1>
-    <p class="jumbotron"><%= message %></p>
-
-
-    <a href="/auth/login" title="Login">Login</a> or <a href="/auth/register" title="Register">Register</a>
-    
+<main class="home">
+    <section class="jumbotron">
+        <div class="container">
+              <a href="/basilicos" class="btn btn-default center-block"><img src="images/menu.png" /></a>  
+        </div>
+    </section>
 </main>
   
 <%- include ./partials/footer.ejs %>
+

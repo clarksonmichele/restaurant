@@ -1,29 +1,31 @@
 <%- include ../partials/header.ejs %>
 
-<main class="container">
-    <h1>Login to Basilico</h1>
-    <!--Invaild login message-->
-    <% if (messages.length > 0) { %>
-        <div class="alert alert-danger"><%= messages %></div>
-    <% } %>
 
-    <form method="post" action="/auth/login">
-        <fieldset class="form-group">
-            <label for="username" class="col-sm-2">Username:</label>
-            <input name="username" id="username" required />
-        </fieldset>
-        <fieldset class="form-group">
-            <label for="password" class="col-sm-2">Password:</label>
-            <input name="password" id="password" required />
-        </fieldset>
-        <button class="btn btn-primary col-sm-offset-2">Login</button>
-        <!--<a href="/auth/github" title="Login with GitHub">
-            <img src="/images/github.png" alt="GitHub" />
-        </a>-->
-        <hr />
-        Do you need access? <a href="/auth/register" title="Register">Register</a>
-    </form>
+    <section class="jumbotron">
+        <div class="container">
+            <h1>Login to Basilico</h1>
+            <!--Invaild login message-->
+            <% if (messages.length > 0) { %>
+                <div class="alert alert-danger"><%= messages %></div>
+            <% } %>
 
-</main>
+            <form method="post" action="/auth/login">
+                <fieldset class="form-group">
+                    <label for="username" class="col-sm-2">Username:</label>
+                    <input name="username" id="username" required />
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="password" class="col-sm-2">Password:</label>
+                    <input name="password" id="password" required />
+                </fieldset>
+                <button class="btn btn-primary col-sm-offset-2">Login</button>
+                <hr />
+                Do you need access? <a href="/auth/register" title="Register" class="btn btn-default">Register</a>
+            </form>
+        </div>
+    </section>
+        
+
 
 <%- include ../partials/footer.ejs %>
+

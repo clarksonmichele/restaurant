@@ -8,13 +8,14 @@
 body {
     font-size: 100%;
     line-height: 2em;
-    padding: 3%;
+    padding: 0;
+    margin: 0;
+    height: 100%;
     font-family: sans-serif;
-   /* background-image: url('../images/pasta.png');
+    background-image: url('../images/pasta.png');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 100px;*/
 }
 
 h1 {
@@ -25,19 +26,35 @@ p {
     color: #333333;
 }
 
+ a {
+  
+}
 /*Header*/
 
-<
+nav {
+   /* outline: 2px solid aqua;*/
+    
+}
+
+/*centering the images*/
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*Footer*/
-.footer {
-    outline: 2px solid aqua;
+footer {
     margin-top: 20px;
-    padding-top: 20px;
+    padding-top: 30px;
     padding-bottom: 40px;
-    background-color: #333;
+    background-color: #000000;
     text-align: center;
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: 300;
 }
-footer p {
-    color: #fff;
+
+footer a {
+    color: #a8a8a8;
 }

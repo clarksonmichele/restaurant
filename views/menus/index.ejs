@@ -1,20 +1,21 @@
 <%- include ../partials/header.ejs %>
 
-<main class="container">
-    <h1>Menus</h1>
+<section class="jumbotron">
+    <div class="container">
+        <h1>Menus</h1>
 
-    <a href="/menus/add" title="Add a menu item">Add a new Menu Item</a>
+        <a href="/menus/add" title="Add a menu item">Add a Menu Item</a>
 
-    <ul class="list-group">
-        <% for (var i = 0; i < menus.length; i++) { %>
-            <li class="list-group-item">
-                <!-- link to /menus/:id -->
-                <a href="/menus/<%= menus[i]._id%>" title="Read More">
-                    <%= menus[i].item %></a>
-            </li>
-        <% } %>
-    </ul>
-</main>
+        <ul class="list-group">
+            <% for (var i = 0; i < menus.length; i++) { %>
+                <li class="list-group-item">
+                    <!-- link to /menus/:id -->
+                    <a href="/menus/<%= menus[i]._id%>" title="Read More">
+                        <%= menus[i].item %></a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</section>
 
-</body>
-</html>
+<%- include ../partials/footer.ejs %>

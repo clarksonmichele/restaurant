@@ -1,12 +1,10 @@
 <%- include ../partials/header.ejs %>
 
-<main class="container">
-    
+<section class="jumbotron">
+    <div class="container">
     <h1>Welcome, <%= user.username %></h1>
-    <h2>What would you like to do today?</h2>
-    <a href="/basilicos" title="menu">View the menu</a>
-    <a href="/menus" title="edit">Edit the menu</a> 
-    
-</main>
+        <a href="/menus" class="btn btn-default center-block">Add a Menu Item </a>  
+    </div>
+</section>
 
 <%- include ../partials/footer.ejs %>
